@@ -1,2 +1,2 @@
-# login-page
-A simple login page.
+# sign-up-page
+A simple sign up page.
