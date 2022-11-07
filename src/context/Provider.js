@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { validateUsername, validateEmail, validatePassword } from "../helpers/validation";
 import Context from "./Context";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 
 function Provider({ children }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validLogin, setValidLogin] = useState(false);
+  const [problem, setProblem] = useState("");
 
   useEffect(() => {
     const validateInputs = () => {
-      const validUser = username.length >= 1;
-      const validEmail = email.length >= 1;
-      const validPassword = password.length === 2;
+      const validUser = validateUsername(username);
+      const validEmail = validateEmail(email);
+      const validPassword = validatePassword(password);
       setValidLogin(validUser && validEmail && validPassword);
     };
     validateInputs();
@@ -23,10 +24,12 @@ function Provider({ children }) {
     username,
     email,
     password,
+    validLogin,
+    problem,
     setUsername,
     setEmail,
     setPassword,
-    validLogin,
+    setProblem,
   };
 
   return <Context.Provider value={providerValue}>{children}</Context.Provider>;

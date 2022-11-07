@@ -22,6 +22,10 @@ label {
 	flex-direction: column;
 }
 
+.hidden {
+	opacity: 0.1;
+}
+
 @media screen and (max-width: 400px) {
 .main {
 	width: 300px;
