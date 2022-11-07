@@ -1,0 +1,35 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	padding-top: 20vh;
+}
+
+.main {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+}
+
+@media screen and (max-width: 400px) {
+.main {
+	width: 300px;
+}
+}
+
+@media screen and (max-width: 400px) {
+	.main {
+		width: 240px;
+	}
+}
