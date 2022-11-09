@@ -1,19 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Form from "./components/Form";
-import Terms from "./components/Terms";
-import Context from "./context/Context";
+import NotFound from "./components/NotFound";
 import "./styles/main.css";
 
 function App() {
-  const {
-    displayTerms,
-  } = useContext(Context);
-
   return (
-    <>
-      {displayTerms && <Terms />}
-      <Form />
-    </>
+    <Routes>
+      <Route exact path="/" element={ <Form /> } />
+      <Route exact path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

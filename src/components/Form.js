@@ -2,15 +2,17 @@ import React, { useContext } from "react";
 import { validatePassword, validateUsername, validateEmail } from "../helpers/validation";
 import * as e from "../helpers/problemList";
 import Context from "../context/Context";
+import Terms from "./Terms";
 import "../styles/form.css";
 
 function Form() {
   const {
     problem,
     agreedTerms,
+    displayTerms,
+    toggleTerms,
     setAgreedTerms,
     setProblem,
-    toggleTerms,
   } = useContext(Context);
 
   const usernameValidation = (username) => {
@@ -56,49 +58,52 @@ function Form() {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input
-          type="text"
-          onBlur={({ target }) => usernameValidation(target.value)}
-        />
-      </label>
-      <p className="problem">{problem.username === "EMPTY" ? "" : problem.username}</p>
-      <label>
-        Email:
-        <input
-          type="email"
-          onBlur={({ target }) => emailValidation(target.value)}
-        />
-      </label>
-      <p className="problem">{problem.email === "EMPTY" ? "" : problem.email}</p>
-      <label>
-        Password:
-        <input
-          type="password"
-          onBlur={({ target }) => passwordValidation(target.value)}
-        />
-      </label>
-      <p className="problem">{problem.password === "EMPTY" ? "" : problem.password}</p>
-      <p className="problem">{problem.terms === "EMPTY" ? "" : problem.terms}</p>
-      <div className="terms-container">
+    <>
+      {displayTerms && <Terms />}
+      <form>
         <label>
-          <input type="checkbox" 
-            checked={agreedTerms} 
-            onChange={() => setAgreedTerms((prevState) => (!prevState))}
+          Username:
+          <input
+            type="text"
+            onBlur={({ target }) => usernameValidation(target.value)}
           />
         </label>
-        <p>I read and agreed to 
-          <span className="terms-link" onClick={toggleTerms}>Terms & Conditions</span>
-        </p>
-      </div>
-      <input
-        type="button"
-        value="Sign Up"
-        onClick={handleSignIn}
-      />
-    </form>
+        <p className="problem">{problem.username === "EMPTY" ? "" : problem.username}</p>
+        <label>
+          Email:
+          <input
+            type="email"
+            onBlur={({ target }) => emailValidation(target.value)}
+          />
+        </label>
+        <p className="problem">{problem.email === "EMPTY" ? "" : problem.email}</p>
+        <label>
+          Password:
+          <input
+            type="password"
+            onBlur={({ target }) => passwordValidation(target.value)}
+          />
+        </label>
+        <p className="problem">{problem.password === "EMPTY" ? "" : problem.password}</p>
+        <p className="problem">{problem.terms === "EMPTY" ? "" : problem.terms}</p>
+        <div className="terms-container">
+          <label>
+            <input type="checkbox" 
+              checked={agreedTerms} 
+              onChange={() => setAgreedTerms((prevState) => (!prevState))}
+            />
+          </label>
+          <p>I read and agreed to 
+            <span className="terms-link" onClick={toggleTerms}>Terms & Conditions</span>
+          </p>
+        </div>
+        <input
+          type="button"
+          value="Sign Up"
+          onClick={handleSignIn}
+        />
+      </form>
+    </>
   );
 }
 
