@@ -1,22 +1,8 @@
 import React, { useContext } from "react";
 import { validatePassword, validateUsername, validateEmail } from "../helpers/validation";
-import {
-  SHORT_NAME,
-  LONG_NAME,
-  INVALID_NAME,
-  INVALID_EMAIL,
-  SHORT_PASSWORD,
-  LONG_PASSWORD,
-  NO_NUMBER_PASSWORD,
-  NO_UPPERCASE_PASSWORD,
-  NO_LOWERCASE_PASSWORD,
-  INVALID_PASSWORD,
-  NOT_AGREED,
-  EMPTY_NAME,
-  EMPTY_EMAIL,
-  EMPTY_PASSWORD,
-} from "../helpers/problemList";
+import * as e from "../helpers/problemList";
 import Context from "../context/Context";
+import "../styles/form.css";
 
 function Form() {
   const {
@@ -29,35 +15,35 @@ function Form() {
 
   const usernameValidation = (username) => {
     let currProblem = "";
-    if(!validateUsername(username)) currProblem = INVALID_NAME;
-    if(username.length <= 2) currProblem = SHORT_NAME;
-    if(username.length > 15) currProblem = LONG_NAME;
+    if(!validateUsername(username)) currProblem = e.INVALID_NAME;
+    if(username.length <= 2) currProblem = e.SHORT_NAME;
+    if(username.length > 15) currProblem = e.LONG_NAME;
     setProblem((prevState) => ({...prevState, username: currProblem}));
   };
 
   const emailValidation = (email) => {
     let currProblem = "";
-    if(!validateEmail(email)) currProblem = INVALID_EMAIL;
+    if(!validateEmail(email)) currProblem = e.INVALID_EMAIL;
     setProblem((prevState) => ({...prevState, email: currProblem}));
   };
 
   const passwordValidation = (password) => {
     let currProblem = "";
-    if(!validatePassword(password)) currProblem = INVALID_PASSWORD;
-    if(password.length <= 7) currProblem = SHORT_PASSWORD;
-    if(password.length > 15) currProblem = LONG_PASSWORD;
-    if(password.search(/[0-9]/) === -1) currProblem = NO_NUMBER_PASSWORD;
-    if(password.search(/[A-Z]/) === -1) currProblem = NO_UPPERCASE_PASSWORD;
-    if(password.search(/[a-z]/) === -1) currProblem = NO_LOWERCASE_PASSWORD;
+    if(!validatePassword(password)) currProblem = e.INVALID_PASSWORD;
+    if(password.length <= 7) currProblem = e.SHORT_PASSWORD;
+    if(password.length > 15) currProblem = e.LONG_PASSWORD;
+    if(password.search(/[0-9]/) === -1) currProblem = e.NO_NUMBER_PASSWORD;
+    if(password.search(/[A-Z]/) === -1) currProblem = e.NO_UPPERCASE_PASSWORD;
+    if(password.search(/[a-z]/) === -1) currProblem = e.NO_LOWERCASE_PASSWORD;
     setProblem((prevState) => ({...prevState, password: currProblem}));
   };
 
   const signInValidation = () => {
     const { username, email, password } = problem;
-    if (!agreedTerms) return NOT_AGREED;
-    if (username.length) return EMPTY_NAME;
-    if (email.length) return EMPTY_EMAIL;
-    if (password.length) return EMPTY_PASSWORD;
+    if (!agreedTerms) return e.NOT_AGREED;
+    if (username.length) return e.EMPTY_NAME;
+    if (email.length) return e.EMPTY_EMAIL;
+    if (password.length) return e.EMPTY_PASSWORD;
     return "";
   };
 
@@ -103,7 +89,9 @@ function Form() {
             onChange={() => setAgreedTerms((prevState) => (!prevState))}
           />
         </label>
-        <p>I read and agreed to <span className="terms" onClick={toggleTerms}>Terms & Conditions</span></p>
+        <p>I read and agreed to 
+          <span className="terms-link" onClick={toggleTerms}>Terms & Conditions</span>
+        </p>
       </div>
       <input
         type="button"
