@@ -3,12 +3,24 @@ import Context from "./Context";
 import PropTypes from "prop-types";
 
 function Provider({ children }) {
+  const [displayTerms, setDisplayTerms] = useState(false);
   const [agreedTerms, setAgreedTerms] = useState(false);
-  const [problem, setProblem] = useState({username: "EMPTY", email: "EMPTY", password: "EMPTY", terms: "EMPTY"});
+  const [problem, setProblem] = useState({
+    username: "EMPTY",
+    email: "EMPTY",
+    password: "EMPTY",
+    terms: "EMPTY"
+  });
+
+  const toggleTerms = () => {
+    setDisplayTerms((prevState) => (!prevState));
+  };
 
   const providerValue = {
     problem,
     agreedTerms,
+    displayTerms,
+    toggleTerms,
     setProblem,
     setAgreedTerms,
   };
