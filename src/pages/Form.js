@@ -29,7 +29,7 @@ function Form() {
 
   const handleSignIn = () => {
     const hasProblem = signInValidation();
-    if (!hasProblem.length) return navigate("/test");
+    if (!hasProblem.length) return navigate("/signedup");
     setProblem((prevState) => (
       {...prevState, terms: hasProblem}
     ));
