@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { validatePassword, validateUsername, validateEmail } from "../helpers/validation";
+import { useNavigate } from "react-router-dom";
 import * as e from "../helpers/problemList";
 import Context from "../context/Context";
-import Terms from "./Terms";
+import Terms from "../components/Terms";
 import "../styles/form.css";
 
 function Form() {
@@ -15,30 +16,7 @@ function Form() {
     setProblem,
   } = useContext(Context);
 
-  const usernameValidation = (username) => {
-    let currProblem = "";
-    if(!validateUsername(username)) currProblem = e.INVALID_NAME;
-    if(username.length <= 2) currProblem = e.SHORT_NAME;
-    if(username.length > 15) currProblem = e.LONG_NAME;
-    setProblem((prevState) => ({...prevState, username: currProblem}));
-  };
-
-  const emailValidation = (email) => {
-    let currProblem = "";
-    if(!validateEmail(email)) currProblem = e.INVALID_EMAIL;
-    setProblem((prevState) => ({...prevState, email: currProblem}));
-  };
-
-  const passwordValidation = (password) => {
-    let currProblem = "";
-    if(!validatePassword(password)) currProblem = e.INVALID_PASSWORD;
-    if(password.length <= 7) currProblem = e.SHORT_PASSWORD;
-    if(password.length > 15) currProblem = e.LONG_PASSWORD;
-    if(password.search(/[0-9]/) === -1) currProblem = e.NO_NUMBER_PASSWORD;
-    if(password.search(/[A-Z]/) === -1) currProblem = e.NO_UPPERCASE_PASSWORD;
-    if(password.search(/[a-z]/) === -1) currProblem = e.NO_LOWERCASE_PASSWORD;
-    setProblem((prevState) => ({...prevState, password: currProblem}));
-  };
+  const navigate = useNavigate();
 
   const signInValidation = () => {
     const { username, email, password } = problem;
@@ -50,8 +28,8 @@ function Form() {
   };
 
   const handleSignIn = () => {
-    let hasProblem = signInValidation();
-    if (!hasProblem.length) return console.log("sign in");
+    const hasProblem = signInValidation();
+    if (!hasProblem.length) return navigate("/test");
     setProblem((prevState) => (
       {...prevState, terms: hasProblem}
     ));
@@ -65,7 +43,8 @@ function Form() {
           Username:
           <input
             type="text"
-            onBlur={({ target }) => usernameValidation(target.value)}
+            onBlur={({ target}) => setProblem((prevState) => (
+              {...prevState, username: validateUsername(target.value)}))}
           />
         </label>
         <p className="problem">{problem.username === "EMPTY" ? "" : problem.username}</p>
@@ -73,7 +52,8 @@ function Form() {
           Email:
           <input
             type="email"
-            onBlur={({ target }) => emailValidation(target.value)}
+            onBlur={({ target}) => setProblem((prevState) => (
+              {...prevState, email: validateEmail(target.value)}))}
           />
         </label>
         <p className="problem">{problem.email === "EMPTY" ? "" : problem.email}</p>
@@ -81,7 +61,8 @@ function Form() {
           Password:
           <input
             type="password"
-            onBlur={({ target }) => passwordValidation(target.value)}
+            onBlur={({ target}) => setProblem((prevState) => (
+              {...prevState, password: validatePassword(target.value)}))}
           />
         </label>
         <p className="problem">{problem.password === "EMPTY" ? "" : problem.password}</p>

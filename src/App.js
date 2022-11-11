@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Form from "./components/Form";
-import NotFound from "./components/NotFound";
+import Form from "./pages/Form";
+import NotFound from "./pages/NotFound";
 import "./styles/main.css";
 
 function App() {
