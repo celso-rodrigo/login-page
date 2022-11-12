@@ -7,11 +7,13 @@
 
 :root {
 	--main: #fffffe;
-	--bg: #edf6fb;
+	--bg: #e7f0f5;
 	--headline: #094067;
 	--paragraph: #5f6c7b;
 	--button: #3da9fc;
 	--contrast: #ef4565;
+	--box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px,
+	rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
 }
 
 body {
@@ -24,7 +26,7 @@ body {
 .signed-up {
 	font-size: 4rem;
 	font-weight: 200;
-	color: var(--headline);
+	color: var(--paragraph);
 }
 
 @media screen and (max-width: 400px) {

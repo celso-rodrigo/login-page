@@ -1,29 +1,39 @@
 form {
   background-color: var(--main);
-  border: 1px solid var(--headline);
   border-radius: 10px;
   padding: 35px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 400px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px,
-    rgba(0, 0, 0, 0.3) 0 7px 13px -3px, rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+  box-shadow: var(--box-shadow);
 }
 
 label {
+	position: relative;
   display: flex;
   flex-direction: column;
   color: var(--paragraph);
 }
 
 label input {
-	outline: none;
+  outline: none;
   border: none;
   padding: 10px;
   border-bottom: 1px solid var(--headline);
   background-color: transparent;
   font-size: 1rem;
+}
+
+label input:focus {
+  border-bottom: 1px solid var(--button);
+}
+
+.password-icon {
+	position: absolute;
+	right: 7px;
+	bottom: 22px;
+	height: 20px;
 }
 
 .problem {
@@ -43,7 +53,7 @@ label input {
   border-radius: 20px;
   padding: 5px;
   align-self: center;
-	cursor: pointer;
+  cursor: pointer;
   transition: 0.2s;
 }
 
@@ -54,70 +64,87 @@ label input {
 
 .terms-container {
   padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .terms-container .problem {
   text-align: center;
-	padding: 0 0 20px 0;
+  width: 100%;
+  padding: 0 0 20px 0;
 }
 
 .terms-container label {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
 .terms-container label input {
-	width: 17px;
-	height: 17px;
+  width: 17px;
+  height: 17px;
 }
 
 .terms-link {
   color: var(--button);
-  text-decoration: underline;
   cursor: pointer;
+  padding-left: 5px;
 }
 
 .terms-popup {
+  padding: 10px;
   width: 500px;
   height: 600px;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-	background-color: var(--main);
+  background-color: var(--main);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: var(--box-shadow);
 }
 
 .terms-popup header {
   height: 15%;
-	padding: 0 20px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	color: var(--headline);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  color: var(--headline);
+}
+
+.terms-popup header h1 {
+  font-weight: 300;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .close-btn {
-	width: 50px;
-	height: 50px;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
+  width: 55px;
+  height: 55px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  filter: invert(45%) sepia(6%) saturate(1250%) hue-rotate(172deg)
+    brightness(90%) contrast(90%);
+}
+
+.close-btn img {
+  width: 55px;
+  height: 55px;
 }
 
 .terms-text {
-	color: var(--paragraph);
+  color: var(--paragraph);
   align-self: flex-end;
   justify-self: flex-end;
   max-height: 85%;
   overflow-y: scroll;
-	padding: 0 20px 0 20px;
+  padding: 0 20px 0 20px;
 }
 
 .terms-text p {
-	padding-bottom: 10px;
+  padding-bottom: 10px;
 }

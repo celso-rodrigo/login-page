@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { validatePassword, validateUsername, validateEmail } from "../helpers/validation";
+import pwVisible from "../images/pwVisible.svg";
+import pwHidden from "../images/pwHidden.svg";
 import * as e from "../helpers/problemList";
 import Terms from "./Terms";
 import "../styles/form.css";
@@ -8,6 +10,7 @@ function Form() {
   const [signedUp, setSignedUp] = useState(false);
   const [displayTerms, setDisplayTerms] = useState(false);
   const [agreedTerms, setAgreedTerms] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [problem, setProblem] = useState({
     username: "EMPTY",
     email: "EMPTY",
@@ -64,9 +67,14 @@ function Form() {
             </label>
 
             <label>
+              <img
+                src={showPassword ? pwVisible : pwHidden}
+                onClick={() => setShowPassword((prevState) => (!prevState))}
+                alt="Toggle password."
+                className="password-icon" />
               Password:
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 onBlur={({ target}) => setProblem((prevState) => (
                   {...prevState, password: validatePassword(target.value)}))}
               />
@@ -80,11 +88,9 @@ function Form() {
                   checked={agreedTerms} 
                   onChange={() => setAgreedTerms((prevState) => (!prevState))}
                 />
-                <p>
-                  {"I read and agreed to "}
-                  <span className="terms-link" onClick={toggleTerms}>Terms & Conditions</span>
-                </p>
+                I read and agreed to
               </label>
+              <span className="terms-link" onClick={toggleTerms}>Terms & Conditions</span>
             </div>
 
             <button type="button" onClick={handleSignIn} className="sign-btn">
