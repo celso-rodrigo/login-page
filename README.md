@@ -56,7 +56,7 @@ A simple sign up page example.
     <li>Senha pode possuir apenas "@$!%*#?&^_-" como caracteres especiais.</li>
     <li>Senha precisa incluir números, letras maiúsculas e minúsculas.</li>
     <li>Você precisa concordar com os termos e condições.</li>
-		<li>Todas as validações precisam ser verdadeiras para cadastrar-se com sucesso.</li>
+    <li>Todas as validações precisam ser verdadeiras para cadastrar-se com sucesso.</li>
   </ul>  
  
   <br/>
