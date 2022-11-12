@@ -1,10 +1,10 @@
 form {
   background-color: var(--main);
   border-radius: 10px;
-  padding: 35px;
+  padding: 9%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 2.5vh;
   width: 400px;
   box-shadow: var(--box-shadow);
 }
@@ -49,7 +49,7 @@ label input:focus {
   color: var(--button);
   font-size: 1.5rem;
   font-weight: 200;
-  width: 50%;
+  width: 180px;
   border-radius: 20px;
   padding: 5px;
   align-self: center;
@@ -66,6 +66,7 @@ label input:focus {
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
+	justify-content: center;
 }
 
 .terms-container .problem {
@@ -147,4 +148,22 @@ label input:focus {
 
 .terms-text p {
   padding-bottom: 10px;
+}
+
+@media screen and (max-width: 400px) {
+	form {
+		height: 100vh;
+		width: 100vw;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.terms-container {
+		padding: 20px 0;
+	}
+
+	.problem {
+		height: 2rem;
+		font-size: 0.7rem;
+	}
 }
