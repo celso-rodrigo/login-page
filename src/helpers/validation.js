@@ -1,7 +1,7 @@
 import * as e from "../helpers/problemList";
 
 export const validateUsername = (username) => {
-  const pattern = /^[a-z0-9_-]{3,15}$/;
+  const pattern = /^[a-zA-Z0-9_-]{3,15}$/;
   if(username.length <= 2) return e.SHORT_NAME;
   if(username.length > 15) return e.LONG_NAME;
   if(!pattern.test(username)) return e.INVALID_NAME;
