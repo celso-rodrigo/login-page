@@ -5,15 +5,26 @@
 	font-family: 'Ubuntu', sans-serif;
 }
 
+:root {
+	--main: #fffffe;
+	--bg: #edf6fb;
+	--headline: #094067;
+	--paragraph: #5f6c7b;
+	--button: #3da9fc;
+	--contrast: #ef4565;
+}
+
 body {
 	display: flex;
 	justify-content: center;
-	padding-top: 20vh;
+	padding-top: 15vh;
+	background-color: var(--bg);
 }
 
-.not-found, .signed-up {
+.signed-up {
 	font-size: 4rem;
 	font-weight: 200;
+	color: var(--headline);
 }
 
 @media screen and (max-width: 400px) {
