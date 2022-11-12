@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/sign-up-page/static/css/main.f80c600e.css",
+    "main.js": "/sign-up-page/static/js/main.3b634dd5.js",
+    "index.html": "/sign-up-page/index.html",
+    "static/media/pwHidden.svg": "/sign-up-page/static/media/pwHidden.3b1d24d45f36c63a871c70f8b74dbf62.svg",
+    "static/media/pwVisible.svg": "/sign-up-page/static/media/pwVisible.e99d74334ad6397152628e2098cbc42b.svg",
+    "static/media/close.svg": "/sign-up-page/static/media/close.08233535a9321b39bf5f4a13e34fede0.svg",
+    "main.f80c600e.css.map": "/sign-up-page/static/css/main.f80c600e.css.map",
+    "main.3b634dd5.js.map": "/sign-up-page/static/js/main.3b634dd5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f80c600e.css",
+    "static/js/main.3b634dd5.js"
+  ]
+}
