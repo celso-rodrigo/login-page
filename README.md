@@ -7,7 +7,7 @@ A simple sign up page example.
   <summary><h2>Read in English :us:</h2></summary><br />
   <h3><a href="https://celso-rodrigo.github.io/sign-up-page/">Take a look at the project!</a></h3>
   <h3>About</h3>
-  <p>This is a sign in application where you need to  properly fill the form in order to proceed.</p>
+  <p>This is a sign in application where you need to properly fill the form in order to proceed.</p>
   <p>Validations:</p>
   <ul>
     <li>Email must have a valid format</li>
@@ -47,7 +47,7 @@ A simple sign up page example.
 <summary><h2>Leia em português :brazil:</h2></summary><br />
   <h3><a href="https://celso-rodrigo.github.io/sign-up-page/">Dê uma olhada no projeto!</a></h3>
   <h3>Sobre</h3>
-  <p>This is a sign in application where you need to  properly fill the form in order to proceed.</p>
+  <p>Está é uma aplicação que simula um cadastro onde você precisa preencher corretamente todos os campos.</p>
   <p>Validações:</p>
   <ul>
     <li>Email precisa estar em um formato válido.</li>
