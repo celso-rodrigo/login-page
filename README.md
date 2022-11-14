@@ -47,7 +47,7 @@ A simple sign up page example.
 <summary><h2>Leia em português :brazil:</h2></summary><br />
   <h3><a href="https://celso-rodrigo.github.io/sign-up-page/">Dê uma olhada no projeto!</a></h3>
   <h3>Sobre</h3>
-  <p>Está é uma aplicação que simula um cadastro onde você precisa preencher corretamente todos os campos.</p>
+  <p>Esta é uma aplicação que simula um cadastro onde você precisa preencher corretamente todos os campos para poder prosseguir.</p>
   <p>Validações:</p>
   <ul>
     <li>Email precisa estar em um formato válido.</li>
@@ -56,7 +56,7 @@ A simple sign up page example.
     <li>Senha pode possuir apenas "@$!%*#?&^_-" como caracteres especiais.</li>
     <li>Senha precisa incluir números, letras maiúsculas e minúsculas.</li>
     <li>Você precisa concordar com os termos e condições.</li>
-		<li>Todas as validações precisam ser verdadeiras para cadastrar-se com sucesso.</li>
+    <li>Todas as validações precisam ser verdadeiras para cadastrar-se com sucesso.</li>
   </ul>  
  
   <br/>
